@@ -1,0 +1,47 @@
+@import './css/bootstrap.min.css';
+@import "dhtmlx-gantt/codebase/dhtmlxgantt.css";
+body{
+    /*padding-top: 72px;*/
+    height: 100%;
+}
+
+.body-content{
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.applicationHost{
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    margin: 0 auto -60px;
+    padding: 0 0 90px;
+}
+
+
+.gantt-chart{
+    position: relative;
+    width: 100%;
+    height: 600px;
+}
+
+.gantt_task_cell.weekend{ background: #e9eef1af !important;}
+
+.gantt_task_cell.no_work_hour {
+    background-color: #726e33;
+}
+
+/* Styles for resource view*/
+.resource_marker{
+    text-align: center;
+}
+
+.resource_marker div{
+    width: 28px;
+    height: 28px;
+    line-height: 29px;
+    display: inline-block;
+    border-radius: 15px;
+    color: #FFF;
+    margin: 3px;
+}

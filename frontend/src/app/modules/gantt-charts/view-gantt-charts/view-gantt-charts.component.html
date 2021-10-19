@@ -1,0 +1,101 @@
+<br>
+
+<div class="btn-group">
+  <a class="btn btn-outline-secondary" (click)="handleMenuClick(1)" title="Save">
+    <i class="fa fa-save"></i>
+  </a>
+  <a class="btn btn-outline-secondary" (click)="handleMenuClick(2)" title="Undo">
+    <i class="fa fa-undo"></i>
+  </a>
+  <a class="btn btn-outline-secondary" (click)="handleMenuClick(3)" title="Redo">
+    <i class="fa fa-repeat"></i>
+  </a>
+  <a class="btn btn-outline-secondary" (click)="handleMenuClick(5)" title="Gantt-View">
+    <i class="fa fa-list"></i>
+  </a>
+  <a class="btn btn-outline-secondary" (click)="handleMenuClick(7)" title="Resource-View">
+    <i class="fa fa-list-alt"></i>
+  </a>
+  <a class="btn btn-outline-info" (click)="handleMenuClick(1)" title="Marker">
+    <i class="fa fa-bookmark"></i>
+  </a>
+  <a class="btn btn-outline-success" (click)="handleMenuClick(2)" title="Zoom-In">
+    <i class="fa fa-search-plus"></i>
+  </a>
+  <a class="btn btn-outline-success" (click)="handleMenuClick(3)" title="Zoom-Out">
+    <i class="fa fa-search-minus"></i>
+  </a>
+  <a class="btn btn-outline-secondary" (click)="handleMenuClick(4)" title="Show Work-Off">
+    <i class="fa fa-leanpub"></i>
+  </a>
+  <a class="btn btn-outline-secondary" (click)="handleMenuClick(10)" title="Reports">
+    <i class="fa fa-file-text"></i>
+  </a>
+  <a class="btn btn-outline-secondary" (click)="showUploadFormResources()" title="Settings">
+    <i class="fa fa-cogs"></i>
+  </a>
+  <a class="btn btn-outline-secondary" (click)="showUploadForm()" title="Upload Data">
+    <i class="fa fa-upload"></i>
+  </a>
+  <a class="btn btn-info" (click)="forwardSchedule()" title="forwardSchedule">
+    <i class="fa fa-cogs"></i>
+  </a>
+</div>
+
+
+<br/>
+
+<div class="card border-secondary" *ngIf="showUploadResourceFlag">
+  <p></p>
+    <form>
+      <div class="form-group">
+        <label for="inputGroupResourceFileAddon01" class="col-2">Upload Resource Library</label>
+        <div class="custom-file col-4">
+          <input type="file" class="custom-file-input" (change)="onResourceFileChange($event.target.files)" required>
+          <label class="custom-file-label" #resourceFileName for="importFile" required>Choose file</label>
+        </div>
+      </div>
+      
+      &nbsp;&nbsp;
+      <!-- <button type="button" class="btn btn-primary btn-sm" (click) ="onSubmit($event)">Submit</button>
+      {{successMessage}} -->
+    </form>
+    <br/>
+</div>
+
+
+<div class="card border-secondary" *ngIf="showUploadFormFlag">
+  <p></p>
+    <form>
+ 
+      <div class="form-group">
+        <label for="inputGroupFileAddon01" class="col-2">Upload Plan</label>
+        <div class="custom-file col-4">
+          <input type="file" class="custom-file-input" (change)="onFileChange($event.target.files)" required>
+          <label class="custom-file-label" #planFileName for="importFile" required>Choose file</label>
+        </div>
+      </div>
+      &nbsp;&nbsp;
+      <button type="button" class="btn btn-primary btn-sm" (click) ="onSubmit($event)">Submit</button>
+      {{successMessage}}
+    </form>
+    <br/>
+</div>
+
+<br>
+
+<div #gantt_here class='gantt-chart'></div>>
+
+<div class="float-left">
+  <fieldset>
+    <button type="submit" class="btn btn-primary btn-sm" (click)="autoSchedule($event)">
+      <i class="fa fa-floppy-o"></i>&nbsp;&nbsp;AutoResourceLoading</button>
+  </fieldset>
+</div>
+
+<div class="float-right">
+  <fieldset>
+    <button type="submit" class="btn btn-danger btn-lg float-right" (click)="cleanUpAll($event)">
+      <i class="fa fa-floppy-o"></i>&nbsp;&nbsp;CleanUpAllData</button>
+  </fieldset>
+</div>
